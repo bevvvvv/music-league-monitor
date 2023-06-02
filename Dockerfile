@@ -9,8 +9,9 @@ RUN go mod download
 
 # does not traverse sub directories
 COPY *.go ./
-RUN go build -o /music-league-monitor
+COPY discord_api/*.go ./discord_api/
+RUN go build -o music-league-monitor
 
 EXPOSE 80
 
-CMD /music-league-monitor
+ENTRYPOINT ["./music-league-monitor"]

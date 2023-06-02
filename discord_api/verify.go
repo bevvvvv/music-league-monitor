@@ -30,6 +30,8 @@ func HandleChallenge(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	log.Println(string(body))
+
 	// Decode the JSON body of the request
 	err = json.Unmarshal(body, &interaction)
 	if err != nil {
